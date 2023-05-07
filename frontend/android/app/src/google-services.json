@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "539743925010",
+    "project_id": "jobgency-60a5f",
+    "storage_bucket": "jobgency-60a5f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539743925010:android:05149f321caa38d988f9cb",
+        "android_client_info": {
+          "package_name": "com.example.frontend"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539743925010-024kff507hendo3fn031cqevhj9chalv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnT7HuIwB6JkhG1sRvddhvU91T9G8uE5I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "539743925010-024kff507hendo3fn031cqevhj9chalv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

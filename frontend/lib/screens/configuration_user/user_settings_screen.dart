@@ -2,6 +2,9 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:frontend/widgets/appbar/app_bar_return.dart';
 
+import '../../global/global.dart';
+import '../../splashScreens/splash_screen.dart';
+
 class UserSettingsScreen extends StatelessWidget {
   const UserSettingsScreen({Key? key});
 
@@ -43,65 +46,83 @@ class UserSettingsScreen extends StatelessWidget {
                             ),
                     ),
                   )),
-                  SizedBox(height: 10,),
-                  Text("_User name_", style: TextStyle(
+              SizedBox(
+                height: 10,
+              ),
+              //IMPRIMIMOS EL NOMBRE DEL USUARIO ACTUAL A PARTIR DE LOS DATOS RECOPILADOS
+              Text(
+                userModelCurrentInfo!.name.toString() +
+                    " " +
+                    userModelCurrentInfo!.paternLastName.toString() +
+                    " " +
+                    userModelCurrentInfo!.maternLastName.toString(),
+                style: TextStyle(
                     color: Colors.black,
                     fontSize: 23,
-                    fontWeight: FontWeight.bold
-                  ),),
-                  SizedBox(height: 30,),
-                  Expanded(
-                    child: ListView(
-                        children: [
-                          ListTile(
-                            leading: Icon(Icons.edit_rounded),
-                            title: Text("Editar Perfil"),
-                            shape: Border(
-                              top: BorderSide(width: 1, color: Colors.black),
-                              bottom: BorderSide(width: 1, color: Colors.black),
-                              ),
-                            onTap: () => print("Editar perfil toque"),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.alternate_email),
-                            title: Text("Correo/Contraseña"),
-                            shape: Border(bottom: BorderSide(width: 1, color: Colors.black)),
-                            onTap: () => print("Correo/Contraseña"),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.wallet,),
-                            title: Text("Método de pago"),
-                            shape: Border(bottom: BorderSide(width: 1, color: Colors.black)),
-                            onTap: () => print("Método de pago"),
-                          ),
-                          ListTile(
-                            leading: Icon(Icons.history,),
-                            title: Text("Historial"),
-                            shape: Border(bottom: BorderSide(width: 1, color: Colors.black)),
-                            onTap: () => print("Historial"),
-                          ),
-                        ],
-                    )
-                  ),
-                  Align(
-                   alignment: Alignment.bottomCenter,
-
-                    child: DottedBorder(
-                      color: Colors.red,
-                      dashPattern: const [6, 3, 2, 3], 
-                      strokeWidth: 1,
-                      
-                      child: ElevatedButton(
-                        child: Text("Cerrar sesión"),
-                        style: ElevatedButton.styleFrom(
-                          foregroundColor: Color.fromARGB(232, 244, 86, 54),
-                          backgroundColor: Colors.transparent,
-                          shadowColor: Colors.transparent
-                        ),
-                        onPressed: () => print("Cerrar sesión"),
-                      ),
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Expanded(
+                  child: ListView(
+                children: [
+                  ListTile(
+                    leading: Icon(Icons.edit_rounded),
+                    title: Text("Editar Perfil"),
+                    shape: Border(
+                      top: BorderSide(width: 1, color: Colors.black),
+                      bottom: BorderSide(width: 1, color: Colors.black),
                     ),
-                  )
+                    onTap: () => print("Editar perfil toque"),
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.alternate_email),
+                    title: Text("Correo/Contraseña"),
+                    shape: Border(
+                        bottom: BorderSide(width: 1, color: Colors.black)),
+                    onTap: () => print("Correo/Contraseña"),
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.wallet,
+                    ),
+                    title: Text("Método de pago"),
+                    shape: Border(
+                        bottom: BorderSide(width: 1, color: Colors.black)),
+                    onTap: () => print("Método de pago"),
+                  ),
+                  ListTile(
+                    leading: Icon(
+                      Icons.history,
+                    ),
+                    title: Text("Historial"),
+                    shape: Border(
+                        bottom: BorderSide(width: 1, color: Colors.black)),
+                    onTap: () => print("Historial"),
+                  ),
+                ],
+              )),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: DottedBorder(
+                  color: Colors.red,
+                  dashPattern: const [6, 3, 2, 3],
+                  strokeWidth: 1,
+                  child: ElevatedButton(
+                    child: Text("Cerrar sesión"),
+                    style: ElevatedButton.styleFrom(
+                        foregroundColor: Color.fromARGB(232, 244, 86, 54),
+                        backgroundColor: Colors.transparent,
+                        shadowColor: Colors.transparent),
+                    onPressed: () {
+                      fAuth.signOut();
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (c) => MySplashScreen()));
+                    },
+                  ),
+                ),
+              )
             ],
           ),
         ),
