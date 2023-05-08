@@ -13,6 +13,7 @@ class UserModel {
   String? state;
   String? cp;
   String? id;
+  String? bornDate;
   String? email;
   UserModel({this.phone, this.name, this.id, this.email});
 
@@ -25,6 +26,7 @@ class UserModel {
     state = (snap.value as dynamic)["state"];
     phone = (snap.value as dynamic)["phone"];
     name = (snap.value as dynamic)["name"];
+    bornDate = (snap.value as dynamic)["bornDate"];
     id = (snap.key);
     email = (snap.value as dynamic)["email"];
   }

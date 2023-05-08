@@ -47,6 +47,7 @@ dependencies:
   url_launcher: ^6.1.10
   flutter_paypal: ^0.0.8
   date_time_picker: ^2.1.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

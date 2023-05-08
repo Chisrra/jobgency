@@ -4,6 +4,7 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 import 'dart:convert';
 
 import '../global/global.dart';
@@ -16,6 +17,9 @@ class SignUpScreen extends StatefulWidget {
   _SignUpScreenState createState() => _SignUpScreenState();
 }
 
+final TextEditingController _dateController = TextEditingController();
+final _dateFormat = DateFormat('dd/MM/yyyy');
+
 class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController nameTextEditingController = TextEditingController();
   TextEditingController maternLastNameTextEditingController =
@@ -23,7 +27,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
   TextEditingController paternLastNameTextEditingController =
       TextEditingController();
   TextEditingController ageTextEditingController = TextEditingController();
-  late String _bornDate;
   TextEditingController streetNameTextEditingController =
       TextEditingController();
   TextEditingController cpTextEditingController = TextEditingController();
@@ -47,7 +50,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       Fluttertoast.showToast(msg: "El apellido materno no puede estar vacío");
     } else if (ageTextEditingController.text.isEmpty) {
       Fluttertoast.showToast(msg: "Ingrese una edad");
-    } else if (_bornDate.isEmpty) {
+    } else if (_dateController.text.isEmpty) {
       Fluttertoast.showToast(msg: "Ingrese una fecha de nacimiento");
     } else if (streetNameTextEditingController.text.isEmpty) {
       Fluttertoast.showToast(msg: "Ingrese la calle en la que vive");
@@ -100,7 +103,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         "paternLastName": paternLastNameTextEditingController.text.trim(),
         "maternLastName": maternLastNameTextEditingController.text.trim(),
         "age": ageTextEditingController.text.trim(),
-        "bornDate": _bornDate.trim(),
+        "bornDate": _dateController.text.trim(),
         "street": streetNameTextEditingController.text.trim(),
         "extNumber": extNumberTextEditingController.text.trim(),
         "intNumber": intNumberTextEditingController.text.trim(),
@@ -253,22 +256,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 ),
               ),
-              DateTimePicker(
-                type: DateTimePickerType.date,
-                dateMask: 'd MMM, yyyy',
-                initialValue: '',
-                firstDate: DateTime(1900),
-                lastDate: DateTime.now(),
-                icon: Icon(Icons.event),
-                dateLabelText: 'Fecha de nacimiento',
-                onChanged: (val) => setState(() => _bornDate = val),
-                validator: (val) {
-                  if (val == null || val.isEmpty) {
-                    return 'Por favor seleccione una fecha';
+              TextFormField(
+                keyboardType: TextInputType.datetime,
+                controller: _dateController,
+                decoration: const InputDecoration(
+                  suffixIcon: Icon(Icons.calendar_today),
+                  labelText: "Fecha de nacimiento",
+                ),
+                readOnly: true,
+                onTap: () async {
+                  DateTime? pickedDate = await showDatePicker(
+                      context: context,
+                      initialDate: DateTime.now(),
+                      firstDate: DateTime(1900),
+                      lastDate: DateTime(DateTime.now().year + 1));
+                  if (pickedDate != null) {
+                    setState(() {
+                      _dateController.text =
+                          (_dateFormat.format(pickedDate)).toString();
+                    });
+                  } else {
+                    print("No se selecciono nada");
                   }
-                  return null;
                 },
-                onSaved: (val) => setState(() => _bornDate = val!),
               ),
               TextField(
                 onTapOutside: (event) => FocusScope.of(context).unfocus(),
