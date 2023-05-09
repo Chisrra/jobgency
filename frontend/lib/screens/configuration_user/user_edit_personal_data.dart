@@ -78,24 +78,6 @@ class _EditPersonalData extends State<EditPersonalData> {
                 },
               ),
 
-              //Edad
-              /*  TextFormField(
-                decoration: InputDecoration(labelText: 'Edad'),
-                keyboardType: TextInputType.number,
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Por favor ingrese su edad';
-                  }
-                  if (int.tryParse(value) == null) {
-                    return 'Por favor ingrese un número válido';
-                  }
-                  return null;
-                },
-                onSaved: (value) {
-                  _userData!.edad = int.parse(value!);
-                },
-              ), */
-
               //Fecha de nacimiento
               TextFormField(
                 keyboardType: TextInputType.datetime,
