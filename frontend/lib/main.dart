@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend/screens/configuration_user/email_password_config.dart';
 import 'package:frontend/screens/configuration_user/user_edit_personal_data.dart';
 import 'package:frontend/screens/configuration_user/user_settings_screen.dart';
+import 'package:frontend/screens/email_password_change/email_change.dart';
 import 'package:frontend/splashScreens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -24,6 +26,8 @@ void main() async {
         '/home' : (context) => MainScreen(),
         '/user_settings' : (context) => const UserSettingsScreen(),
         '/edit_personal_data' :(context) => const EditPersonalData(),
+        '/email_password_config' :(context) => const EmailPasswordConfig(),
+        '/email_change' : (context) => const EmailChange(),
       },
     ),
   )));
