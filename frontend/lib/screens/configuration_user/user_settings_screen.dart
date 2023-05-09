@@ -9,6 +9,7 @@ class UserSettingsScreen extends StatelessWidget {
   const UserSettingsScreen({super.key});
 
   static const routeEditPersonalData = '/edit_personal_data';
+  static const routeEmailPasswordConfig = '/email_password_config';
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +80,7 @@ class UserSettingsScreen extends StatelessWidget {
                     title: const Text("Correo/Contraseña"),
                     shape: const Border(
                         bottom: BorderSide(width: 1, color: Colors.black)),
-                    onTap: () => print("Correo/Contraseña"),
+                    onTap: () => Navigator.pushNamed(context, routeEmailPasswordConfig),
                   ),
                   ListTile(
                     leading: const Icon(
