@@ -160,8 +160,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.05,
                 ),
                 ElevatedButton(
                   onPressed: () {
@@ -178,10 +178,33 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                 ),
+
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.01,
+                ),
+
                 TextButton(
-                  child: const Text(
-                    "No tienes cuenta aún? Registrate aquí!",
-                    style: TextStyle(color: Colors.black),
+                  child: const Text.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "¿No tienes cuenta aún?  ",
+                          style: TextStyle(
+                            fontSize: 15.0,
+                            color: Colors.black,
+                          ),
+                        ),
+
+                        TextSpan(
+                          text: "¡Registrate aquí!",
+                          style: TextStyle(
+                            fontSize: 15.0,
+                            color: Colors.blue,
+                            decoration: TextDecoration.underline,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                   onPressed: () {
                     Navigator.push(context,

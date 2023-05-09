@@ -506,9 +506,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
               ),
               TextButton(
-                child: const Text(
-                  "Ya tienes una cuenta? Ingresa Aquí!",
-                  style: TextStyle(color: Colors.black),
+                child: const Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: "¿Ya tienes una cuenta? ",
+                        style: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.black,
+                        ),
+                      ),
+                      TextSpan(
+                        text: "¡Ingresa Aquí!",
+                        style: TextStyle(
+                          fontSize: 15.0,
+                          color: Colors.blue,
+                          decoration: TextDecoration.underline,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
                 onPressed: () {
                   Navigator.push(context,
