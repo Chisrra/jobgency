@@ -23,7 +23,7 @@ void main() async {
       routes: {
         '/home' : (context) => MainScreen(),
         '/user_settings' : (context) => const UserSettingsScreen(),
-        '/edit_personal_data' :(context) => EditPersonalData(),
+        '/edit_personal_data' :(context) => const EditPersonalData(),
       },
     ),
   )));
