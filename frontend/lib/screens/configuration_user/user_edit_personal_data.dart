@@ -4,8 +4,9 @@ import 'package:frontend/widgets/appbar/app_bar_return.dart';
 import 'package:intl/intl.dart';
 
 class EditPersonalData extends StatefulWidget {
-  EditPersonalData({super.key});
+  const EditPersonalData({super.key});
 
+  @override
   State<EditPersonalData> createState() => _EditPersonalData();
 }
 
@@ -24,7 +25,7 @@ class _EditPersonalData extends State<EditPersonalData> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBarReturn(title: "Datos personales"),
+      appBar: const AppBarReturn(title: "Datos personales"),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -35,7 +36,7 @@ class _EditPersonalData extends State<EditPersonalData> {
               TextFormField(
                 keyboardType: TextInputType.name,
                 initialValue: _userData!.name,
-                decoration: InputDecoration(labelText: "Nombre"),
+                decoration: const InputDecoration(labelText: "Nombre"),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Por favor ingrese su nombre";
@@ -50,7 +51,7 @@ class _EditPersonalData extends State<EditPersonalData> {
               //Apellido Paterno
               TextFormField(
                 initialValue: _userData!.paternLastName,
-                decoration: InputDecoration(labelText: "Apellido Paterno"),
+                decoration: const InputDecoration(labelText: "Apellido Paterno"),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Por favor ingrese su apellido paterno";
@@ -65,7 +66,7 @@ class _EditPersonalData extends State<EditPersonalData> {
               //Apellido Materno
               TextFormField(
                 initialValue: _userData!.maternLastName,
-                decoration: InputDecoration(labelText: "Apellido Materno"),
+                decoration: const InputDecoration(labelText: "Apellido Materno"),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Por favor ingrese su apellido paterno";
@@ -124,7 +125,7 @@ class _EditPersonalData extends State<EditPersonalData> {
               //Calle
               TextFormField(
                 keyboardType: TextInputType.streetAddress,
-                decoration: InputDecoration(labelText: "Calle"),
+                decoration: const InputDecoration(labelText: "Calle"),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Por favor ingrese su apellido paterno";
@@ -142,7 +143,7 @@ class _EditPersonalData extends State<EditPersonalData> {
                   //Ext.
                   Expanded(
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: "Num. Ext."),
+                      decoration: const InputDecoration(labelText: "Num. Ext."),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Por favor ingrese su apellido paterno";
@@ -160,7 +161,7 @@ class _EditPersonalData extends State<EditPersonalData> {
                   //Ext.
                   Expanded(
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: "Num. Int."),
+                      decoration: const InputDecoration(labelText: "Num. Int."),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Por favor ingrese su apellido paterno";
@@ -182,7 +183,7 @@ class _EditPersonalData extends State<EditPersonalData> {
                   //Ext.
                   Expanded(
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: "Codigo postal"),
+                      decoration: const InputDecoration(labelText: "Codigo postal"),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Por favor ingrese su apellido paterno";
@@ -200,7 +201,7 @@ class _EditPersonalData extends State<EditPersonalData> {
                   //Ext.
                   Expanded(
                     child: TextFormField(
-                      decoration: InputDecoration(labelText: "Estado"),
+                      decoration: const InputDecoration(labelText: "Estado"),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return "Por favor ingrese su apellido paterno";
@@ -217,7 +218,7 @@ class _EditPersonalData extends State<EditPersonalData> {
 
               TextFormField(
                 keyboardType: TextInputType.phone,
-                decoration: InputDecoration(labelText: "Número de celular"),
+                decoration: const InputDecoration(labelText: "Número de celular"),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Por favor ingrese su apellido paterno";
@@ -230,19 +231,19 @@ class _EditPersonalData extends State<EditPersonalData> {
               ),
 
               //Espacio
-              SizedBox(
+              const SizedBox(
                 height: 10.0,
               ),
 
               //Boton Saved
               ElevatedButton(
-                child: Text("Guardar"),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF4e79ba),
-                  foregroundColor: Color(0xFFFFFFFF),
+                  backgroundColor: const Color(0xFF4e79ba),
+                  foregroundColor: const Color(0xFFFFFFFF),
                   elevation: 10.0,
                 ),
                 onPressed: () {},
+                child: const Text("Guardar"),
               ),
             ],
           ),

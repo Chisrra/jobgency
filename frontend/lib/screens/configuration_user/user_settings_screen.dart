@@ -6,14 +6,16 @@ import '../../global/global.dart';
 import '../../splashScreens/splash_screen.dart';
 
 class UserSettingsScreen extends StatelessWidget {
-  const UserSettingsScreen({Key? key});
+  const UserSettingsScreen({super.key});
+
+  static const routeEditPersonalData = '/edit_personal_data';
 
   @override
   Widget build(BuildContext context) {
-    String url_image_user = '';
+    String urlImageUser = '';
 
     return Scaffold(
-      appBar: AppBarReturn(title: "Configuración"),
+      appBar: const AppBarReturn(title: "Configuración"),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(10.0),
@@ -21,7 +23,7 @@ class UserSettingsScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Container(
-                  margin: EdgeInsets.symmetric(vertical: 10),
+                  margin: const EdgeInsets.symmetric(vertical: 10),
                   width: 100,
                   height: 100,
                   decoration: BoxDecoration(
@@ -33,71 +35,67 @@ class UserSettingsScreen extends StatelessWidget {
                     child: SizedBox(
                       width: double.infinity,
                       height: double.infinity,
-                      child: url_image_user == ''
-                          ? FittedBox(
-                              child: const Icon(
+                      child: urlImageUser == ''
+                          ? const FittedBox(
+                              child: Icon(
                                 Icons.account_circle_rounded,
                                 color: Colors.grey,
                               ),
                             )
                           : Image.network(
-                              url_image_user,
+                              urlImageUser,
                               fit: BoxFit.cover,
                             ),
                     ),
                   )),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               //IMPRIMIMOS EL NOMBRE DEL USUARIO ACTUAL A PARTIR DE LOS DATOS RECOPILADOS
               Text(
-                userModelCurrentInfo!.name.toString() +
-                    " " +
-                    userModelCurrentInfo!.paternLastName.toString() +
-                    " " +
-                    userModelCurrentInfo!.maternLastName.toString(),
-                style: TextStyle(
+                "${userModelCurrentInfo!.name} ${userModelCurrentInfo!.paternLastName} ${userModelCurrentInfo!.maternLastName}",
+                style: const TextStyle(
                     color: Colors.black,
                     fontSize: 23,
                     fontWeight: FontWeight.bold),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Expanded(
                   child: ListView(
                 children: [
                   ListTile(
-                    leading: Icon(Icons.edit_rounded),
-                    title: Text("Editar Perfil"),
-                    shape: Border(
+                    leading: const Icon(Icons.edit_rounded),
+                    title: const Text("Editar Perfil"),
+                    shape: const Border(
                       top: BorderSide(width: 1, color: Colors.black),
                       bottom: BorderSide(width: 1, color: Colors.black),
                     ),
-                    onTap: () => print("Editar perfil toque"),
+                    onTap: () => Navigator.pushNamed(context, routeEditPersonalData),
                   ),
                   ListTile(
-                    leading: Icon(Icons.alternate_email),
-                    title: Text("Correo/Contraseña"),
-                    shape: Border(
+                    leading: const Icon(Icons.alternate_email),
+                    title: const Text("Correo/Contraseña"),
+                    shape: const Border(
                         bottom: BorderSide(width: 1, color: Colors.black)),
                     onTap: () => print("Correo/Contraseña"),
                   ),
                   ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.wallet,
                     ),
-                    title: Text("Método de pago"),
-                    shape: Border(
+                    title: const Text("Método de pago"),
+                    shape: const Border(
                         bottom: BorderSide(width: 1, color: Colors.black)),
                     onTap: () => print("Método de pago"),
                   ),
                   ListTile(
-                    leading: Icon(
+                    leading: const Icon(
                       Icons.history,
                     ),
-                    title: Text("Historial"),
-                    shape: Border(
+                    title: const Text("Historial"),
+                    shape: const Border(
                         bottom: BorderSide(width: 1, color: Colors.black)),
                     onTap: () => print("Historial"),
                   ),
@@ -110,9 +108,8 @@ class UserSettingsScreen extends StatelessWidget {
                   dashPattern: const [6, 3, 2, 3],
                   strokeWidth: 1,
                   child: ElevatedButton(
-                    child: Text("Cerrar sesión"),
                     style: ElevatedButton.styleFrom(
-                        foregroundColor: Color.fromARGB(232, 244, 86, 54),
+                        foregroundColor: const Color.fromARGB(232, 244, 86, 54),
                         backgroundColor: Colors.transparent,
                         shadowColor: Colors.transparent),
                     onPressed: () {
@@ -120,6 +117,7 @@ class UserSettingsScreen extends StatelessWidget {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (c) => MySplashScreen()));
                     },
+                    child: const Text("Cerrar sesión"),
                   ),
                 ),
               )
