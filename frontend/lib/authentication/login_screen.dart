@@ -9,6 +9,8 @@ import '../splashScreens/splash_screen.dart';
 import '../widgets/progress_dialog.dart';
 
 class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -44,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
     )
             .catchError((msg) {
       Navigator.pop(context);
-      Fluttertoast.showToast(msg: "Error: " + msg.toString());
+      Fluttertoast.showToast(msg: "Error: $msg");
     }))
         .user;
 
@@ -143,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   style: const TextStyle(color: Colors.grey),
                   decoration: const InputDecoration(
                     labelText: "Contraseña",
-                    hintText: "Contraseña",
+                    hintText: "********",
                     enabledBorder: UnderlineInputBorder(
                       borderSide: BorderSide(color: Colors.grey),
                     ),
@@ -168,7 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     validateForm();
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 78, 121, 186),
+                    backgroundColor: const Color.fromARGB(255, 78, 121, 186),
                   ),
                   child: const Text(
                     "Login",

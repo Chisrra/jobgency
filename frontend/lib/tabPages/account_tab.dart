@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/screens/configuration_user/user_settings_screen.dart';
-import '../global/global.dart';
-import '../splashScreens/splash_screen.dart';
 
 class AccountTab extends StatefulWidget {
   AccountTab({Key? key}) : super(key: key);

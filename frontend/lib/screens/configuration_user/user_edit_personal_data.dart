@@ -50,6 +50,7 @@ class _EditPersonalData extends State<EditPersonalData> {
 
               //Apellido Paterno
               TextFormField(
+                keyboardType: TextInputType.name,
                 initialValue: _userData!.paternLastName,
                 decoration: const InputDecoration(labelText: "Apellido Paterno"),
                 validator: (value) {
@@ -65,6 +66,7 @@ class _EditPersonalData extends State<EditPersonalData> {
 
               //Apellido Materno
               TextFormField(
+                keyboardType: TextInputType.text,
                 initialValue: _userData!.maternLastName,
                 decoration: const InputDecoration(labelText: "Apellido Materno"),
                 validator: (value) {
@@ -125,6 +127,7 @@ class _EditPersonalData extends State<EditPersonalData> {
                   //Ext.
                   Expanded(
                     child: TextFormField(
+                      keyboardType: TextInputType.text,
                       decoration: const InputDecoration(labelText: "Num. Ext."),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -140,9 +143,10 @@ class _EditPersonalData extends State<EditPersonalData> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.05,
                   ),
-                  //Ext.
+                  //Int.
                   Expanded(
                     child: TextFormField(
+                      keyboardType: TextInputType.text,
                       decoration: const InputDecoration(labelText: "Num. Int."),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -162,9 +166,10 @@ class _EditPersonalData extends State<EditPersonalData> {
               //CP y Estado
               Row(
                 children: [
-                  //Ext.
+                  //CP.
                   Expanded(
                     child: TextFormField(
+                      keyboardType: TextInputType.text,
                       decoration: const InputDecoration(labelText: "Codigo postal"),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -180,9 +185,10 @@ class _EditPersonalData extends State<EditPersonalData> {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.05,
                   ),
-                  //Ext.
+                  //Estado.
                   Expanded(
                     child: TextFormField(
+                      keyboardType: TextInputType.text,
                       decoration: const InputDecoration(labelText: "Estado"),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -200,7 +206,7 @@ class _EditPersonalData extends State<EditPersonalData> {
 
               TextFormField(
                 keyboardType: TextInputType.phone,
-                decoration: const InputDecoration(labelText: "Número de celular"),
+                decoration: const InputDecoration(labelText: "Número de celular", hintText: "### ### ####"),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "Por favor ingrese su apellido paterno";

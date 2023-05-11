@@ -1,6 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:frontend/widgets/appbar/app_bar_return.dart';
+import 'package:frontend/widgets/appbar/app_bar_title.dart';
 
 import '../../global/global.dart';
 import '../../splashScreens/splash_screen.dart';
@@ -16,7 +16,7 @@ class UserSettingsScreen extends StatelessWidget {
     String urlImageUser = '';
 
     return Scaffold(
-      appBar: const AppBarReturn(title: "Configuración"),
+      appBar: const AppBarTitle(title: "Configuración"),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(10.0),

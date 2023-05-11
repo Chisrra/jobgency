@@ -19,7 +19,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
         ? AssistantMethods.readCurrentOnlineUserInfo()
         : null;
     Timer(const Duration(seconds: 3), () async {
-      if (await fAuth.currentUser != null) {
+      if (fAuth.currentUser != null) {
         currentFirebaseUser = fAuth.currentUser;
         // ignore: use_build_context_synchronously
         Navigator.push(
@@ -27,7 +27,7 @@ class _MySplashScreenState extends State<MySplashScreen> {
       } else {
         // ignore: use_build_context_synchronously
         Navigator.push(
-            context, MaterialPageRoute(builder: (c) => LoginScreen()));
+            context, MaterialPageRoute(builder: (c) => const LoginScreen()));
       }
     });
   }
@@ -41,25 +41,23 @@ class _MySplashScreenState extends State<MySplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child: Container(
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Text(
-                "Welcome to",
-                style: TextStyle(fontSize: 20),
-                textAlign: TextAlign.left,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text(
+              "Welcome to",
+              style: TextStyle(fontSize: 20),
+              textAlign: TextAlign.left,
+            ),
+            Text(
+              "JobGency",
+              style: TextStyle(
+                fontSize: 60,
+                fontWeight: FontWeight.bold,
               ),
-              Text(
-                "JobGency",
-                style: TextStyle(
-                  fontSize: 60,
-                  fontWeight: FontWeight.bold,
-                ),
-              )
-            ],
-          ),
+            )
+          ],
         ),
       ),
     );

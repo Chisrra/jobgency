@@ -21,7 +21,7 @@ class _EmailChange extends State<EmailChange> {
   ];
 
   //Controladores de los TextFormField
-  TextEditingController _fieldControllerAgregarCorreo = TextEditingController();
+  final TextEditingController _fieldControllerAgregarCorreo = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -111,6 +111,7 @@ class _EmailChange extends State<EmailChange> {
                         controller: _fieldControllerAgregarCorreo,
                         decoration: const InputDecoration(
                           labelText: "Agregar correo",
+                          hintText: "correo@dominio.com",
                           border: OutlineInputBorder(),
                         ),
                       ),
@@ -139,9 +140,9 @@ class _EmailChange extends State<EmailChange> {
                     onPressed: () {print(correos.toString());},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF4E79BA),
-                      padding: EdgeInsets.all(15.0)
+                      padding: const EdgeInsets.all(15.0)
                     ),
-                    child: Text("Guardar cambios", style: TextStyle(color: Colors.white, fontSize: 18),),
+                    child: const Text("Guardar cambios", style: TextStyle(color: Colors.white, fontSize: 18),),
                   ),
                 )
               ]

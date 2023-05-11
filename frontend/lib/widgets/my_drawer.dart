@@ -6,7 +6,7 @@ import '../splashScreens/splash_screen.dart';
 class MyDrawer extends StatefulWidget {
   String? name;
   String? phone;
-  MyDrawer({this.name, this.phone});
+  MyDrawer({super.key, this.name, this.phone});
 
   @override
   State<MyDrawer> createState() => _MyDrawerState();
@@ -19,7 +19,7 @@ class _MyDrawerState extends State<MyDrawer> {
       child: ListView(
         children: [
           //DrawerHeader
-          Container(
+          SizedBox(
             height: 165,
             child: DrawerHeader(
               child: Row(

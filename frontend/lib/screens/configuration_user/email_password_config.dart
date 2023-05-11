@@ -5,6 +5,7 @@ class EmailPasswordConfig extends StatelessWidget {
   const EmailPasswordConfig({super.key});
 
   static const routeEmailChange = "/email_change";
+  static const routePasswordChange = '/password_change';
   
   @override
   Widget build(BuildContext context) {
@@ -31,7 +32,7 @@ class EmailPasswordConfig extends StatelessWidget {
               shape: const Border(
                 bottom: BorderSide(width: 1, color: Colors.black,)
               ),
-              onTap: () => print("cambiar contraseña"),
+              onTap: () => Navigator.pushNamed(context, routePasswordChange),
             ),
           ],
         ),

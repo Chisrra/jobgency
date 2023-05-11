@@ -14,7 +14,7 @@ class _MainScreenState extends State<MainScreen>
     with SingleTickerProviderStateMixin {
   TabController? tabController;
   int selectedIndex = 0;
-  @override
+
   void onItemClicked(int index) {
     setState(() {
       selectedIndex = index;
@@ -22,8 +22,8 @@ class _MainScreenState extends State<MainScreen>
     });
   }
 
+  @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     tabController = TabController(length: 2, vsync: this);
   }

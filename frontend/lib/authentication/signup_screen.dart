@@ -1,11 +1,8 @@
-import 'package:date_time_picker/date_time_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
-import 'dart:convert';
 
 import '../global/global.dart';
 import '../splashScreens/splash_screen.dart';
@@ -13,6 +10,8 @@ import '../widgets/progress_dialog.dart';
 import 'login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
+
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
 }
@@ -92,7 +91,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     )
             .catchError((msg) {
       Navigator.pop(context);
-      Fluttertoast.showToast(msg: "Error: " + msg.toString());
+      Fluttertoast.showToast(msg: "Error: $msg");
     }))
         .user;
 
@@ -496,7 +495,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   validateForm();
                 },
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromARGB(255, 78, 121, 186)),
+                    backgroundColor: const Color.fromARGB(255, 78, 121, 186)),
                 child: const Text(
                   "Registrar cuenta",
                   style: TextStyle(
@@ -529,7 +528,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 ),
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (c) => LoginScreen()));
+                      MaterialPageRoute(builder: (c) => const LoginScreen()));
                 },
               ),
             ],

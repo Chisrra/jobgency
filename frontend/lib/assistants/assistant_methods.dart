@@ -12,11 +12,11 @@ class AssistantMethods {
     userRef.once().then((snap) {
       if (snap.snapshot.value != null) {
         userModelCurrentInfo = UserModel.fromSnapshot(snap.snapshot);
-        print("Name = " + userModelCurrentInfo!.name.toString());
-        print("Email = " + userModelCurrentInfo!.email.toString());
-        print("Phone= " + userModelCurrentInfo!.phone.toString());
-        print("Patern LN= " + userModelCurrentInfo!.paternLastName.toString());
-        print("Matern LN= " + userModelCurrentInfo!.maternLastName.toString());
+        print("Name = ${userModelCurrentInfo!.name}");
+        print("Email = ${userModelCurrentInfo!.email}");
+        print("Phone= ${userModelCurrentInfo!.phone}");
+        print("Patern LN= ${userModelCurrentInfo!.paternLastName}");
+        print("Matern LN= ${userModelCurrentInfo!.maternLastName}");
       }
     });
   }
