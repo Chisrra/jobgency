@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:frontend/global/global.dart';
+import 'package:frontend/widgets/appbar/app_bar_pop_push.dart';
 import 'package:frontend/widgets/appbar/app_bar_return.dart';
 import 'package:intl/intl.dart';
 
@@ -22,10 +24,28 @@ class _EditPersonalData extends State<EditPersonalData> {
     _dateController.text = _userData!.bornDate ?? '';
   }
 
+  void _actualizarDatos() {
+    final FormState? form = _fromKey.currentState;
+    if(form != null && form.validate()) {
+      form.save();
+      //Aqui podríamos actualizar los datos en la BD
+      
+
+      //Exito
+      Fluttertoast.showToast(
+        msg: "Datos actualizados con éxtio",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+      );
+
+    }
+  }
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const AppBarReturn(title: "Datos personales"),
+      appBar: const AppBarPopPush(title: "Datos personales", pushNameRout: '/home'),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
@@ -71,7 +91,7 @@ class _EditPersonalData extends State<EditPersonalData> {
                 decoration: const InputDecoration(labelText: "Apellido Materno"),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return "Por favor ingrese su apellido paterno";
+                    return "Por favor ingrese su apellido materno";
                   }
                   return null;
                 },
@@ -104,20 +124,24 @@ class _EditPersonalData extends State<EditPersonalData> {
                     print("No se selecciono nada");
                   }
                 },
+                onSaved: (newValue) {
+                  _userData!.bornDate = newValue;
+                },
               ),
 
               //Calle
               TextFormField(
+                initialValue: _userData!.streetName,
                 keyboardType: TextInputType.streetAddress,
                 decoration: const InputDecoration(labelText: "Calle"),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return "Por favor ingrese su apellido paterno";
+                    return "Por favor ingrese el nombre de su calle";
                   }
                   return null;
                 },
                 onSaved: (newValue) {
-                  _userData!.paternLastName = newValue!;
+                  _userData!.streetName = newValue!;
                 },
               ),
 
@@ -127,16 +151,17 @@ class _EditPersonalData extends State<EditPersonalData> {
                   //Ext.
                   Expanded(
                     child: TextFormField(
+                      initialValue: _userData!.extNumber,
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(labelText: "Num. Ext."),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "Por favor ingrese su apellido paterno";
+                          return "Por favor ingrese el Num. Ext.";
                         }
                         return null;
                       },
                       onSaved: (newValue) {
-                        _userData!.paternLastName = newValue!;
+                        _userData!.extNumber = newValue!;
                       },
                     ),
                   ),
@@ -146,16 +171,14 @@ class _EditPersonalData extends State<EditPersonalData> {
                   //Int.
                   Expanded(
                     child: TextFormField(
+                      initialValue: _userData!.intNumber ?? '',
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(labelText: "Num. Int."),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return "Por favor ingrese su apellido paterno";
-                        }
-                        return null;
-                      },
                       onSaved: (newValue) {
-                        _userData!.paternLastName = newValue!;
+                        if (newValue == null || newValue.isEmpty) {
+                          return;
+                        }
+                        _userData!.paternLastName = newValue;
                       },
                     ),
                   ),
@@ -169,16 +192,17 @@ class _EditPersonalData extends State<EditPersonalData> {
                   //CP.
                   Expanded(
                     child: TextFormField(
+                      initialValue: _userData!.cp,
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(labelText: "Codigo postal"),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "Por favor ingrese su apellido paterno";
+                          return "Por favor ingrese su Código Postal";
                         }
                         return null;
                       },
                       onSaved: (newValue) {
-                        _userData!.paternLastName = newValue!;
+                        _userData!.cp = newValue!;
                       },
                     ),
                   ),
@@ -188,16 +212,17 @@ class _EditPersonalData extends State<EditPersonalData> {
                   //Estado.
                   Expanded(
                     child: TextFormField(
+                      initialValue: _userData!.state,
                       keyboardType: TextInputType.text,
                       decoration: const InputDecoration(labelText: "Estado"),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return "Por favor ingrese su apellido paterno";
+                          return "Por favor ingrese el estado dodo reside";
                         }
                         return null;
                       },
                       onSaved: (newValue) {
-                        _userData!.paternLastName = newValue!;
+                        _userData!.state = newValue!;
                       },
                     ),
                   ),
@@ -205,16 +230,17 @@ class _EditPersonalData extends State<EditPersonalData> {
               ),
 
               TextFormField(
+                initialValue: _userData!.phone,
                 keyboardType: TextInputType.phone,
                 decoration: const InputDecoration(labelText: "Número de celular", hintText: "### ### ####"),
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return "Por favor ingrese su apellido paterno";
+                    return "Por favor número celular";
                   }
                   return null;
                 },
                 onSaved: (newValue) {
-                  _userData!.paternLastName = newValue!;
+                  _userData!.phone = newValue!;
                 },
               ),
 
@@ -230,7 +256,7 @@ class _EditPersonalData extends State<EditPersonalData> {
                   foregroundColor: const Color(0xFFFFFFFF),
                   elevation: 10.0,
                 ),
-                onPressed: () {},
+                onPressed: _actualizarDatos,
                 child: const Text("Guardar"),
               ),
             ],
