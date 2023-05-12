@@ -10,6 +10,7 @@ class UserSettingsScreen extends StatelessWidget {
 
   static const routeEditPersonalData = '/edit_personal_data';
   static const routeEmailPasswordConfig = '/email_password_config';
+  static const routePaymentMethodReview = '/payment_methods_review';
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +74,7 @@ class UserSettingsScreen extends StatelessWidget {
                       top: BorderSide(width: 1, color: Colors.black),
                       bottom: BorderSide(width: 1, color: Colors.black),
                     ),
-                    onTap: () => Navigator.pushNamed(context, routeEditPersonalData),
+                    onTap: () => Navigator.pushReplacementNamed(context, routeEditPersonalData),
                   ),
                   ListTile(
                     leading: const Icon(Icons.alternate_email),
@@ -89,7 +90,7 @@ class UserSettingsScreen extends StatelessWidget {
                     title: const Text("Método de pago"),
                     shape: const Border(
                         bottom: BorderSide(width: 1, color: Colors.black)),
-                    onTap: () => print("Método de pago"),
+                    onTap: () => Navigator.pushNamed(context, routePaymentMethodReview),
                   ),
                   ListTile(
                     leading: const Icon(
