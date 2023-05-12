@@ -5,6 +5,7 @@ import 'package:frontend/screens/configuration_user/user_edit_personal_data.dart
 import 'package:frontend/screens/configuration_user/user_settings_screen.dart';
 import 'package:frontend/screens/email_password_change/email_change.dart';
 import 'package:frontend/screens/email_password_change/password_change.dart';
+import 'package:frontend/screens/payment_method/payment_methods_review.dart';
 import 'package:frontend/splashScreens/splash_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -25,11 +26,13 @@ void main() async {
       home: MySplashScreen(),
       routes: {
         '/home' : (context) => MainScreen(),
+        '/splash_screee':(context) => MySplashScreen(),
         '/user_settings' : (context) => const UserSettingsScreen(),
         '/edit_personal_data' :(context) => const EditPersonalData(),
         '/email_password_config' :(context) => const EmailPasswordConfig(),
         '/email_change' : (context) => const EmailChange(),
         '/password_change' : (context) => const PasswordChange(),
+        '/payment_methods_review': (context) =>  const PaymentMethodsReview(),
       },
     ),
   )));
