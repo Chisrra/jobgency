@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:frontend/widgets/appbar/app_bar_title.dart';
 
 import '../widgets/service_card.dart';
 
@@ -15,8 +16,8 @@ class _HomeTabPageState extends State<HomeTabPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Servicios'),
+      appBar: AppBarTitle(
+        title: 'Servicios',
       ),
       body: SingleChildScrollView(
         child: Column(
