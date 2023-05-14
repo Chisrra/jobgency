@@ -74,14 +74,16 @@ class UserSettingsScreen extends StatelessWidget {
                       top: BorderSide(width: 1, color: Colors.black),
                       bottom: BorderSide(width: 1, color: Colors.black),
                     ),
-                    onTap: () => Navigator.pushReplacementNamed(context, routeEditPersonalData),
+                    onTap: () => Navigator.pushReplacementNamed(
+                        context, routeEditPersonalData),
                   ),
                   ListTile(
                     leading: const Icon(Icons.alternate_email),
                     title: const Text("Correo/Contraseña"),
                     shape: const Border(
                         bottom: BorderSide(width: 1, color: Colors.black)),
-                    onTap: () => Navigator.pushNamed(context, routeEmailPasswordConfig),
+                    onTap: () =>
+                        Navigator.pushNamed(context, routeEmailPasswordConfig),
                   ),
                   ListTile(
                     leading: const Icon(
@@ -90,7 +92,8 @@ class UserSettingsScreen extends StatelessWidget {
                     title: const Text("Método de pago"),
                     shape: const Border(
                         bottom: BorderSide(width: 1, color: Colors.black)),
-                    onTap: () => Navigator.pushNamed(context, routePaymentMethodReview),
+                    onTap: () =>
+                        Navigator.pushNamed(context, routePaymentMethodReview),
                   ),
                   ListTile(
                     leading: const Icon(

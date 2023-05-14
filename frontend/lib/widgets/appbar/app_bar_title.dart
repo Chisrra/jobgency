@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppBarTitle extends StatelessWidget implements PreferredSizeWidget{
+class AppBarTitle extends StatelessWidget implements PreferredSizeWidget {
   final String title;
 
   const AppBarTitle({super.key, required this.title});
@@ -15,11 +15,11 @@ class AppBarTitle extends StatelessWidget implements PreferredSizeWidget{
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.italic,
         ),
-        ),
+      ),
       backgroundColor: const Color(0xFF0476d9),
     );
   }
 
-   @override
+  @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }
