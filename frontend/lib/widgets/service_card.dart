@@ -21,6 +21,7 @@ class ServiceCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Card(
+        color: const Color.fromARGB(255, 145, 224, 242),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

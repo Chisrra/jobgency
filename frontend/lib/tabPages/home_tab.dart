@@ -19,7 +19,7 @@ class _HomeTabPageState extends State<HomeTabPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const AppBarTitle(
-        title: 'Servicios',
+        title: 'JobGency',
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -36,7 +36,7 @@ class _HomeTabPageState extends State<HomeTabPage> {
               height: 20,
             ),
             SizedBox(
-              height: 250,
+              height: 230,
               child: Expanded(
                 child: GridView.count(
                   physics: const NeverScrollableScrollPhysics(),
@@ -71,9 +71,6 @@ class _HomeTabPageState extends State<HomeTabPage> {
                   ],
                 ),
               ),
-            ),
-            const Divider(
-              thickness: 3,
             ),
             //HOGAR
             const SizedBox(

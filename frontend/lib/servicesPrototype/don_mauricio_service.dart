@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:frontend/screens/payment_method/payment_methods_review.dart';
 import 'package:frontend/widgets/appbar/app_bar_return.dart';
 import 'package:frontend/widgets/custom_service_card.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -65,11 +66,15 @@ class _DonMauricioState extends State<DonMauricio> {
                       const SizedBox(
                         height: 20,
                       ),
-                      Text("Información del servicio"),
+                      const Text(
+                        "INFORMACIÓN DEL SERVICIO",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
                       const SizedBox(
                         height: 20,
                       ),
                       Card(
+                        elevation: 5,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         child: Column(
@@ -97,20 +102,29 @@ class _DonMauricioState extends State<DonMauricio> {
                         ),
                       ),
                       Card(
+                        elevation: 5,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const [
                             ListTile(
-                              leading: Icon(Icons.hourglass_bottom),
+                              leading: Icon(
+                                Icons.hourglass_bottom,
+                                color: Colors.orange,
+                              ),
                               title: Text("Tiempo de llegada aproximada"),
-                              subtitle: Text("5 Minutos"),
+                              subtitle: Text(
+                                "5 Minutos",
+                                style: TextStyle(color: Colors.green),
+                                textAlign: TextAlign.justify,
+                              ),
                             ),
                           ],
                         ),
                       ),
                       Card(
+                        elevation: 5,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10)),
                         child: Column(
@@ -125,25 +139,37 @@ class _DonMauricioState extends State<DonMauricio> {
                             const SizedBox(
                               height: 20,
                             ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                SizedBox(
-                                  height: 200,
-                                  child: Image.asset(
-                                      "assets/images/dmexample1.jpg",
-                                      fit: BoxFit.cover),
-                                ),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                SizedBox(
-                                  height: 200,
-                                  child: Image.asset(
-                                      "assets/images/dmexample2.jpg",
-                                      fit: BoxFit.scaleDown),
-                                ),
-                              ],
+                            SingleChildScrollView(
+                              scrollDirection: Axis.horizontal,
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  SizedBox(
+                                    height: 200,
+                                    child: Image.asset(
+                                        "assets/images/dmexample1.jpg",
+                                        fit: BoxFit.cover),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  SizedBox(
+                                    height: 200,
+                                    child: Image.asset(
+                                        "assets/images/dmexample3.jpg",
+                                        fit: BoxFit.cover),
+                                  ),
+                                  const SizedBox(
+                                    width: 10,
+                                  ),
+                                  SizedBox(
+                                    height: 200,
+                                    child: Image.asset(
+                                        "assets/images/dmexample2.jpg",
+                                        fit: BoxFit.scaleDown),
+                                  ),
+                                ],
+                              ),
                             ),
                             const SizedBox(
                               height: 30,
@@ -154,6 +180,145 @@ class _DonMauricioState extends State<DonMauricio> {
                               height: 30,
                             ),
                           ],
+                        ),
+                      ),
+                      SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            SizedBox(
+                              height: 150,
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                elevation: 5,
+                                child: Padding(
+                                  padding: EdgeInsets.all(20),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: const [
+                                      Text(
+                                        "Yesenia",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text('"Muy buen servicio"'),
+                                      Text("\☆\☆\☆\☆\☆")
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 150,
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                elevation: 5,
+                                child: Padding(
+                                  padding: EdgeInsets.all(20),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: const [
+                                      Text(
+                                        "Damian",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text('"Muy amables"'),
+                                      Text("\☆\☆\☆\☆\☆")
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                            SizedBox(
+                              height: 150,
+                              child: Card(
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10)),
+                                elevation: 5,
+                                child: Padding(
+                                  padding: EdgeInsets.all(20),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.center,
+                                    children: const [
+                                      Text(
+                                        "Erick",
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      Text('"Volvería a contratarlos"'),
+                                      Text("\☆\☆\☆\☆")
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      Card(
+                        elevation: 5,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const [
+                            ListTile(
+                              leading: Icon(
+                                Icons.attach_money,
+                                color: Colors.yellow,
+                              ),
+                              title: Text("COSTOS DEL SERVICIO\n"),
+                              subtitle: Text(
+                                "\$150 Mxn. Servicio Base\n ",
+                                style: TextStyle(color: Colors.green),
+                                textAlign: TextAlign.justify,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (builder) =>
+                                      PaymentMethodsReview()));
+                        },
+                        child: Card(
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              ListTile(
+                                leading: Image.asset(
+                                  "assets/images/visa.png",
+                                  height: 25,
+                                ),
+                                title: const Text("Método de pago"),
+                                subtitle: const Text(
+                                  "Visa 371",
+                                  style: TextStyle(color: Colors.blue),
+                                  textAlign: TextAlign.justify,
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       const SizedBox(
