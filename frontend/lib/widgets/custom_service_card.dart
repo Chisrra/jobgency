@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
 
 class CustomServiceCard extends StatelessWidget {
-  final String? image;
+  final String image;
   final String title;
   final String subTitle;
   final VoidCallback onTap;
-  final Icon icon;
 
   const CustomServiceCard({
     Key? key,
-    this.image,
-    required this.icon,
+    required this.image,
     required this.subTitle,
     required this.title,
     required this.onTap,
@@ -21,13 +19,14 @@ class CustomServiceCard extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Card(
+        margin: EdgeInsets.only(left: 20, right: 20, bottom: 30),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         elevation: 5,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Image.asset(image),
             ListTile(
-              leading: icon,
               title: Text(title),
               subtitle: Text(subTitle),
             ),
