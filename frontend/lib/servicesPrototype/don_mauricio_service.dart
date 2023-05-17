@@ -1,11 +1,13 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:frontend/google_directions/directions_road.dart';
 import 'package:frontend/screens/payment_method/payment_methods_review.dart';
 import 'package:frontend/widgets/appbar/app_bar_return.dart';
-import 'package:frontend/widgets/custom_service_card.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../google_directions/directions_repository.dart';
 import 'don_mauricio_contrat.dart';
 
 class DonMauricio extends StatefulWidget {
@@ -18,11 +20,66 @@ class DonMauricio extends StatefulWidget {
 class _DonMauricioState extends State<DonMauricio> {
   final Completer<GoogleMapController> _controllerGoogleMap =
       Completer<GoogleMapController>();
-  GoogleMapController? newGoogleMapController;
+  GoogleMapController? _newGoogleMapController;
+
+  static const LatLng _donMauricoStand =
+      LatLng(21.911366494494366, -102.31019526193256);
+  static const LatLng _cliente = LatLng(21.913798, -102.316318);
+  late DirectionsRoad _directionsRoad;
+  final Set<Polyline> _polylines = {};
+
   static const CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(21.911366494494366, -102.31019526193256),
+    target: _donMauricoStand,
     zoom: 15,
   );
+
+  @override
+  void dispose() {
+    _newGoogleMapController?.dispose();
+    super.dispose();
+  }
+
+  _getRoute() async {
+    // Get directions
+    final directions = await DirectionsRepository().getDirections(
+      mode: 'walking',
+      origin: _donMauricoStand,
+      destination: _cliente,
+    );
+
+    setState(() {
+      _directionsRoad = directions;
+
+      // Creamos un Polyline y agregamos a _polylines Set
+      _polylines.add(Polyline(
+        polylineId: PolylineId('camino_vehiculo_polyline'),
+        color: Colors.lightBlueAccent,
+        width: 5,
+        patterns: <PatternItem>[PatternItem.dash(10), PatternItem.gap(5)],
+        points: _directionsRoad.polylinePoints
+            .map((e) => LatLng(e.latitude, e.longitude))
+            .toList(),
+      ));
+    });
+  }
+
+  _centerView() async {
+    await _newGoogleMapController!.getVisibleRegion();
+
+    var left = min(_donMauricoStand.latitude, _cliente.latitude);
+    var right = max(_donMauricoStand.latitude, _cliente.latitude);
+    var bottom = min(_donMauricoStand.longitude, _cliente.longitude);
+    var top = max(_donMauricoStand.longitude, _cliente.longitude);
+
+    var bounds = LatLngBounds(
+      southwest: LatLng(left, bottom),
+      northeast: LatLng(right, top),
+    );
+
+    var cameraUpdate = CameraUpdate.newLatLngBounds(bounds, 100);
+    _newGoogleMapController!.animateCamera(cameraUpdate);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,7 +88,7 @@ class _DonMauricioState extends State<DonMauricio> {
         children: [
           GoogleMap(
             markers: {
-              Marker(
+              const Marker(
                   markerId: MarkerId("FontaneríaDM"),
                   position: LatLng(21.911366494494366, -102.31019526193256))
             },
@@ -43,10 +100,14 @@ class _DonMauricioState extends State<DonMauricio> {
             zoomControlsEnabled: false,
             buildingsEnabled: true,
             minMaxZoomPreference: MinMaxZoomPreference(10, 19),
-            onMapCreated: (GoogleMapController controller) {
+            onMapCreated: (GoogleMapController controller) async {
               _controllerGoogleMap.complete(controller);
-              newGoogleMapController = controller;
+              _newGoogleMapController = controller;
+
+              await _getRoute();
+              await _centerView();
             },
+            polylines: _polylines,
           ),
           Positioned(
             bottom: 0,
