@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AppBarReturn extends StatelessWidget implements PreferredSizeWidget{
+class AppBarReturn extends StatelessWidget implements PreferredSizeWidget {
   final String title;
 
   const AppBarReturn({super.key, required this.title});
@@ -19,11 +19,11 @@ class AppBarReturn extends StatelessWidget implements PreferredSizeWidget{
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.italic,
         ),
-        ),
-      backgroundColor: const Color(0xFF0476d9),
+      ),
+      backgroundColor: const Color.fromARGB(255, 78, 121, 186),
     );
   }
 
-   @override
+  @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

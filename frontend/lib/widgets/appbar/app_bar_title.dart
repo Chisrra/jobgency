@@ -17,7 +17,7 @@ class AppBarTitle extends StatelessWidget implements PreferredSizeWidget {
           fontStyle: FontStyle.italic,
         ),
       ),
-      backgroundColor: const Color(0xFF0476d9),
+      backgroundColor: const Color.fromARGB(255, 78, 121, 186),
     );
   }
 

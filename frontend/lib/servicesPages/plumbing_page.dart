@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:frontend/widgets/appbar/app_bar_return.dart';
 import 'package:frontend/widgets/worker_custom_card.dart';
 
@@ -31,7 +32,9 @@ class _PlumbingServicePageState extends State<PlumbingServicePage> {
                 subTitle: "Especialista en reparaciones desde 2002",
                 title: "Fontanería Salix",
                 image: "assets/images/fontaneromex.jpg",
-                onTap: () {}),
+                onTap: () {
+                  Fluttertoast.showToast(msg: "No disponible por el momento");
+                }),
           ],
         ),
       ),
