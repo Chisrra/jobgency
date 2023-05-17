@@ -25,7 +25,15 @@ class CustomServiceCard extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(image),
+            Container(
+              padding: EdgeInsets.all(1),
+              decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(40))),
+              child: Image.asset(
+                image,
+                fit: BoxFit.cover,
+              ),
+            ),
             ListTile(
               title: Text(title),
               subtitle: Text(subTitle),

@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:frontend/widgets/appbar/app_bar_title.dart';
 import 'package:frontend/widgets/custom_service_card.dart';
 
@@ -45,25 +46,37 @@ class _HomeTabPageState extends State<HomeTabPage> {
                   shrinkWrap: true,
                   children: [
                     ServiceCard(
-                      onTap: () {},
+                      onTap: () {
+                        Fluttertoast.showToast(
+                            msg: "No disponible por el momento");
+                      },
                       title: "Comida",
                       subTitle: "Servicios de comida a domicilio",
                       icon: const Icon(Icons.fastfood_outlined),
                     ),
                     ServiceCard(
-                      onTap: () {},
+                      onTap: () {
+                        Fluttertoast.showToast(
+                            msg: "No disponible por el momento");
+                      },
                       title: "Hogar",
                       subTitle: "Servicios para el hogar",
                       icon: const Icon(Icons.home),
                     ),
                     ServiceCard(
-                      onTap: () {},
+                      onTap: () {
+                        Fluttertoast.showToast(
+                            msg: "No disponible por el momento");
+                      },
                       title: "Especializado",
                       subTitle: "Servicios en areas especializadas",
                       icon: const Icon(Icons.miscellaneous_services_outlined),
                     ),
                     ServiceCard(
-                      onTap: () {},
+                      onTap: () {
+                        Fluttertoast.showToast(
+                            msg: "No disponible por el momento");
+                      },
                       title: "Educación",
                       subTitle: "Servicios de educación",
                       icon: const Icon(Icons.school),
@@ -86,9 +99,9 @@ class _HomeTabPageState extends State<HomeTabPage> {
             SizedBox(
               height: 450,
               child: GridView.count(
-                crossAxisSpacing: 1,
+                crossAxisSpacing: 0.5,
                 physics: NeverScrollableScrollPhysics(),
-                mainAxisSpacing: 2,
+                mainAxisSpacing: 1,
                 crossAxisCount: 2,
                 childAspectRatio: 0.9,
                 children: <Widget>[
@@ -106,17 +119,26 @@ class _HomeTabPageState extends State<HomeTabPage> {
                       image: "assets/images/jardineria.jpg",
                       subTitle: "Servicios de jardinería",
                       title: "Jardinería",
-                      onTap: () {}),
+                      onTap: () {
+                        Fluttertoast.showToast(
+                            msg: "No disponible por el momento");
+                      }),
                   CustomServiceCard(
                       image: "assets/images/limpieza.jpg",
                       subTitle: "Servicios de limpieza",
                       title: "Limpieza",
-                      onTap: () {}),
+                      onTap: () {
+                        Fluttertoast.showToast(
+                            msg: "No disponible por el momento");
+                      }),
                   CustomServiceCard(
                       image: "assets/images/pintura.jpg",
                       subTitle: "Servicios de pintura",
                       title: "Pintura",
-                      onTap: () {}),
+                      onTap: () {
+                        Fluttertoast.showToast(
+                            msg: "No disponible por el momento");
+                      }),
                   //SECCIÓN DE SERVICIOS
                 ],
               ),
