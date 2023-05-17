@@ -25,3 +25,5 @@ doc/api/
 
 .flutter-plugins
 .flutter-plugins-dependencies
+
+frontend/lib/global/map_key.dart
