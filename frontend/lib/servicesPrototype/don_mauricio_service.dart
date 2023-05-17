@@ -336,7 +336,7 @@ class _DonMauricioState extends State<DonMauricio> {
                               context,
                               MaterialPageRoute(
                                   builder: (builder) =>
-                                      const ContratarDonMauricio()));
+                                      ContratarDonMauricio()));
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor:

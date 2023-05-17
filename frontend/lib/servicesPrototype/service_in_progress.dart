@@ -2,22 +2,24 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:frontend/servicesPrototype/service_finished.dart';
 import 'package:frontend/servicesPrototype/service_in_progress.dart';
+import 'package:frontend/widgets/wrench_animated.dart';
 
 import '../widgets/progress_bar_service.dart';
 
-class ContratarDonMauricio extends StatefulWidget {
-  ContratarDonMauricio({Key? key}) : super(key: key);
+class ServiceInProgress extends StatefulWidget {
+  ServiceInProgress({Key? key}) : super(key: key);
 
   @override
-  State<ContratarDonMauricio> createState() => _ContratarDonMauricioState();
+  State<ServiceInProgress> createState() => _ServiceInProgressState();
 }
 
-class _ContratarDonMauricioState extends State<ContratarDonMauricio> {
+class _ServiceInProgressState extends State<ServiceInProgress> {
   startTimer() {
     Timer(const Duration(seconds: 10), () async {
       Navigator.push(
-          context, MaterialPageRoute(builder: (c) => ServiceInProgress()));
+          context, MaterialPageRoute(builder: (c) => const ServiceFinished()));
     });
     // ignore: use_build_context_synchronously
   }
@@ -37,10 +39,16 @@ class _ContratarDonMauricioState extends State<ContratarDonMauricio> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              "Tu servidor se encuentra en camino",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              "Servicio en progreso",
+              style: TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                  color: Color.fromARGB(255, 78, 121, 186)),
             ),
-            ProgressBar(),
+            SizedBox(
+              height: 30,
+            ),
+            AnimatedWrench(),
             SizedBox(
               height: 100,
             ),
