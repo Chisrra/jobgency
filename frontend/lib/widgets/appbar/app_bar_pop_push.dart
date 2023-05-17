@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
-class AppBarPopPush extends StatelessWidget implements PreferredSizeWidget{
+class AppBarPopPush extends StatelessWidget implements PreferredSizeWidget {
   final String title;
   final String pushNameRout;
-  const AppBarPopPush({super.key, required this.title, required this.pushNameRout});
+  const AppBarPopPush(
+      {super.key, required this.title, required this.pushNameRout});
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +20,11 @@ class AppBarPopPush extends StatelessWidget implements PreferredSizeWidget{
           fontWeight: FontWeight.bold,
           fontStyle: FontStyle.italic,
         ),
-        ),
-      backgroundColor: const Color(0xFF0476d9),
+      ),
+      backgroundColor: const Color.fromARGB(255, 78, 121, 186),
     );
   }
 
-   @override
+  @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 }

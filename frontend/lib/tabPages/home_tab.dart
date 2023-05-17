@@ -83,35 +83,48 @@ class _HomeTabPageState extends State<HomeTabPage> {
             const SizedBox(
               height: 20,
             ),
-            CustomServiceCard(
-                image: "assets/images/fontaneria.jpg",
-                subTitle: "Servicios de fontanería",
-                title: "Fontanería",
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (builder) => PlumbingServicePage()));
-                }),
-            CustomServiceCard(
-                image: "assets/images/jardineria.jpg",
-                subTitle: "Servicios de jardinería",
-                title: "Jardinería",
-                onTap: () {}),
-            CustomServiceCard(
-                image: "assets/images/limpieza.jpg",
-                subTitle: "Servicios de limpieza",
-                title: "Limpieza",
-                onTap: () {}),
-            CustomServiceCard(
-                image: "assets/images/pintura.jpg",
-                subTitle: "Servicios de pintura",
-                title: "Pintura",
-                onTap: () {}),
-            //SECCIÓN DE SERVICIOS
+            SizedBox(
+              height: 450,
+              child: GridView.count(
+                crossAxisSpacing: 1,
+                physics: NeverScrollableScrollPhysics(),
+                mainAxisSpacing: 2,
+                crossAxisCount: 2,
+                childAspectRatio: 0.9,
+                children: <Widget>[
+                  CustomServiceCard(
+                      image: "assets/images/fontaneria.jpg",
+                      subTitle: "Servicios de fontanería",
+                      title: "Fontanería",
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (builder) => PlumbingServicePage()));
+                      }),
+                  CustomServiceCard(
+                      image: "assets/images/jardineria.jpg",
+                      subTitle: "Servicios de jardinería",
+                      title: "Jardinería",
+                      onTap: () {}),
+                  CustomServiceCard(
+                      image: "assets/images/limpieza.jpg",
+                      subTitle: "Servicios de limpieza",
+                      title: "Limpieza",
+                      onTap: () {}),
+                  CustomServiceCard(
+                      image: "assets/images/pintura.jpg",
+                      subTitle: "Servicios de pintura",
+                      title: "Pintura",
+                      onTap: () {}),
+                  //SECCIÓN DE SERVICIOS
+                ],
+              ),
+            ),
             const Text(
               "PROXIMAMENTE MÁS...",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              textAlign: TextAlign.center,
             ),
             SizedBox(
               height: 20,
